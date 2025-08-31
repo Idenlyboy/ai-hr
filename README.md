@@ -1,152 +1,114 @@
-HR AI Assistant - Помощник для HR-специалистов
-English Description
+# HR AI Assistant - Помощник для HR-специалистов
 
-🇷🇺 Описание проекта
-HR AI Assistant — это инновационное веб-приложение, разработанное для автоматизации и упрощения процесса подбора персонала. Приложение использует искусственный интеллект для помощи HR-специалистам на всех этапах рекрутинга.
+[English Description](#english-description)
 
-🎯 Ключевые возможности
-Для HR-специалистов:
+## 🇷🇺 Описание проекта
 
-Создание вакансий с детальным описанием требований
+**HR AI Assistant** — это инновационное веб-приложение, разработанное для автоматизации и упрощения процесса подбора персонала. Приложение использует искусственный интеллект для помощи HR-специалистам на всех этапах рекрутинга.
 
-Автоматическая генерация тегов-навыков для вакансий с помощью ИИ
+## 🎯 Ключевые возможности
 
-Просмотр и управление откликами кандидатов
+### Для HR-специалистов:
+- Создание вакансий с детальным описанием требований
+- Автоматическая генерация тегов-навыков для вакансий с помощью ИИ
+- Просмотр и управление откликами кандидатов
+- Мониторинг процесса собеседований в реальном времени
 
-Мониторинг процесса собеседований в реальном времени
+### Для кандидатов:
+- Отправка резюме на интересующие вакансии
+- Прохождение AI-собеседования с персонализированными вопросами
+- Получение автоматической оценки своих навыков
 
-Для кандидатов:
+### AI-функциональность:
+- Генерация релевантных навыков для вакансий
+- Создание тестовых вопросов на основе требуемых компетенций
+- Автоматическая проверка ответов кандидатов
+- Выставление комплексной оценки по результатам собеседования
 
-Отправка резюме на интересующие вакансии
+## 🏗️ Архитектура системы
 
-Прохождение AI-собеседования с персонализированными вопросами
-
-Получение автоматической оценки своих навыков
-
-AI-функциональность:
-
-Генерация релевантных навыков для вакансий
-
-Создание тестовых вопросов на основе требуемых компетенций
-
-Автоматическая проверка ответов кандидатов
-
-Выставление комплексной оценки по результатам собеседования
-
-🏗️ Архитектура системы
 Приложение построено на современном стеке технологий с четким разделением моделей данных:
 
-Пользователи (Users) - HR-специалисты и кандидаты
+- **Пользователи (Users)** - HR-специалисты и кандидаты
+- **Вакансии (Vacations)** - создаваемые HRом позиции
+- **Резюме (Resumes)** - отклики кандидатов на вакансии
+- **Навыки (Skills)** - компетенции, генерируемые ИИ
+- **Вопросы (Questions)** - тестовые задания для собеседования
+- **Проверки (Checks)** - результаты AI-верификации ответов
+- **Взаимодействия (Hits)** - отслеживание статусов кандидатов
 
-Вакансии (Vacations) - создаваемые HRом позиции
+## 🚀 Технологии
 
-Резюме (Resumes) - отклики кандидатов на вакансии
+- **Backend**: Laravel PHP framework
+- **Frontend**: VueJs
+- **AI Integration**: Любая ML модель
+- **Database**: SQLite
+- **File Storage**: AWS S3 или подобное
 
-Навыки (Skills) - компетенции, генерируемые ИИ
-
-Вопросы (Questions) - тестовые задания для собеседования
-
-Проверки (Checks) - результаты AI-верификации ответов
-
-Взаимодействия (Hits) - отслеживание статусов кандидатов
-
-🚀 Технологии
-Backend: Laravel PHP framework
-
-Frontend: Modern JavaScript framework (React/Vue)
-
-AI Integration: OpenAI GPT/другие ML-модели
-
-Database: MySQL/PostgreSQL
-
-File Storage: AWS S3 или подобное
+---
 
 <a name="english-description"></a>
+## 🇺🇸 English Description
 
-🇺🇸 English Description
-HR AI Assistant - Intelligent Recruitment Platform
-📖 Project Overview
-HR AI Assistant is an innovative web application designed to automate and streamline the recruitment process. The application leverages artificial intelligence to assist HR specialists at every stage of talent acquisition.
+# HR AI Assistant - Intelligent Recruitment Platform
 
-✨ Key Features
-For HR Specialists:
+## 📖 Project Overview
 
-Create detailed job vacancies with specific requirements
+**HR AI Assistant** is an innovative web application designed to automate and streamline the recruitment process. The application leverages artificial intelligence to assist HR specialists at every stage of talent acquisition.
 
-AI-powered automatic generation of skill tags for vacancies
+## ✨ Key Features
 
-View and manage candidate applications
+### For HR Specialists:
+- Create detailed job vacancies with specific requirements
+- AI-powered automatic generation of skill tags for vacancies
+- View and manage candidate applications
+- Real-time monitoring of interview processes
 
-Real-time monitoring of interview processes
+### For Candidates:
+- Submit resumes to desired job positions
+- Participate in AI-conducted interviews with personalized questions
+- Receive automated skill assessments and feedback
 
-For Candidates:
+### AI Capabilities:
+- Intelligent generation of relevant skills for job positions
+- Creation of test questions based on required competencies
+- Automated evaluation of candidate responses
+- Comprehensive scoring system for interview results
 
-Submit resumes to desired job positions
+## 🏗️ System Architecture
 
-Participate in AI-conducted interviews with personalized questions
-
-Receive automated skill assessments and feedback
-
-AI Capabilities:
-
-Intelligent generation of relevant skills for job positions
-
-Creation of test questions based on required competencies
-
-Automated evaluation of candidate responses
-
-Comprehensive scoring system for interview results
-
-🏗️ System Architecture
 The application is built on modern technology stack with clear data model separation:
 
-Users - HR specialists and candidates
+- **Users** - HR specialists and candidates
+- **Vacations** - Job positions created by HR
+- **Resumes** - Candidate applications to vacancies
+- **Skills** - Competencies generated by AI
+- **Questions** - Interview test questions
+- **Checks** - AI verification results of answers
+- **Hits** - Candidate status tracking and interactions
 
-Vacations - Job positions created by HR
+## 🛠️ Technology Stack
 
-Resumes - Candidate applications to vacancies
+- **Backend**: Laravel PHP framework
+- **Frontend**: VueJs
+- **AI Integration**: Any ML model
+- **Database**: SQLite
+- **File Storage**: AWS S3 or similar
 
-Skills - Competencies generated by AI
+## 🌟 Benefits
 
-Questions - Interview test questions
+- **Time Efficiency**: Reduces manual screening time by up to 70%
+- **Consistency**: Standardized evaluation process for all candidates
+- **Data-Driven**: AI-powered insights for better hiring decisions
+- **Scalable**: Handles multiple vacancies and candidates simultaneously
+- **User-Friendly**: Intuitive interface for both HR and candidates
 
-Checks - AI verification results of answers
+## 📊 Workflow
 
-Hits - Candidate status tracking and interactions
-
-🛠️ Technology Stack
-Backend: Laravel PHP framework
-
-Frontend: Modern JavaScript framework (React/Vue)
-
-AI Integration: OpenAI GPT/other ML models
-
-Database: MySQL/PostgreSQL
-
-File Storage: AWS S3 or similar
-
-🌟 Benefits
-Time Efficiency: Reduces manual screening time by up to 70%
-
-Consistency: Standardized evaluation process for all candidates
-
-Data-Driven: AI-powered insights for better hiring decisions
-
-Scalable: Handles multiple vacancies and candidates simultaneously
-
-User-Friendly: Intuitive interface for both HR and candidates
-
-📊 Workflow
-HR creates vacancy with basic description
-
-AI suggests relevant skills and competencies
-
-Candidates apply with their resumes
-
-AI generates personalized interview questions
-
-Candidates complete AI-conducted interviews
-
-AI evaluates responses and provides comprehensive scoring
-
-HR reviews results and makes informed hiring decisions
+1. HR creates vacancy with basic description
+2. AI suggests relevant skills and competencies
+3. Candidates apply with their resumes
+4. AI generates personalized interview questions
+5. Candidates complete AI-conducted interviews
+6. AI evaluates responses and provides comprehensive scoring
+7. HR reviews results and makes informed hiring decisions

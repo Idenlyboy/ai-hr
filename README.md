@@ -1,61 +1,152 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+HR AI Assistant - Помощник для HR-специалистов
+English Description
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+🇷🇺 Описание проекта
+HR AI Assistant — это инновационное веб-приложение, разработанное для автоматизации и упрощения процесса подбора персонала. Приложение использует искусственный интеллект для помощи HR-специалистам на всех этапах рекрутинга.
 
-## About Laravel
+🎯 Ключевые возможности
+Для HR-специалистов:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Создание вакансий с детальным описанием требований
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Автоматическая генерация тегов-навыков для вакансий с помощью ИИ
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Просмотр и управление откликами кандидатов
 
-## Learning Laravel
+Мониторинг процесса собеседований в реальном времени
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Для кандидатов:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Отправка резюме на интересующие вакансии
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Прохождение AI-собеседования с персонализированными вопросами
 
-## Laravel Sponsors
+Получение автоматической оценки своих навыков
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+AI-функциональность:
 
-### Premium Partners
+Генерация релевантных навыков для вакансий
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Создание тестовых вопросов на основе требуемых компетенций
 
-## Contributing
+Автоматическая проверка ответов кандидатов
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Выставление комплексной оценки по результатам собеседования
 
-## Code of Conduct
+🏗️ Архитектура системы
+Приложение построено на современном стеке технологий с четким разделением моделей данных:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Пользователи (Users) - HR-специалисты и кандидаты
 
-## Security Vulnerabilities
+Вакансии (Vacations) - создаваемые HRом позиции
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Резюме (Resumes) - отклики кандидатов на вакансии
 
-## License
+Навыки (Skills) - компетенции, генерируемые ИИ
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Вопросы (Questions) - тестовые задания для собеседования
+
+Проверки (Checks) - результаты AI-верификации ответов
+
+Взаимодействия (Hits) - отслеживание статусов кандидатов
+
+🚀 Технологии
+Backend: Laravel PHP framework
+
+Frontend: Modern JavaScript framework (React/Vue)
+
+AI Integration: OpenAI GPT/другие ML-модели
+
+Database: MySQL/PostgreSQL
+
+File Storage: AWS S3 или подобное
+
+<a name="english-description"></a>
+
+🇺🇸 English Description
+HR AI Assistant - Intelligent Recruitment Platform
+📖 Project Overview
+HR AI Assistant is an innovative web application designed to automate and streamline the recruitment process. The application leverages artificial intelligence to assist HR specialists at every stage of talent acquisition.
+
+✨ Key Features
+For HR Specialists:
+
+Create detailed job vacancies with specific requirements
+
+AI-powered automatic generation of skill tags for vacancies
+
+View and manage candidate applications
+
+Real-time monitoring of interview processes
+
+For Candidates:
+
+Submit resumes to desired job positions
+
+Participate in AI-conducted interviews with personalized questions
+
+Receive automated skill assessments and feedback
+
+AI Capabilities:
+
+Intelligent generation of relevant skills for job positions
+
+Creation of test questions based on required competencies
+
+Automated evaluation of candidate responses
+
+Comprehensive scoring system for interview results
+
+🏗️ System Architecture
+The application is built on modern technology stack with clear data model separation:
+
+Users - HR specialists and candidates
+
+Vacations - Job positions created by HR
+
+Resumes - Candidate applications to vacancies
+
+Skills - Competencies generated by AI
+
+Questions - Interview test questions
+
+Checks - AI verification results of answers
+
+Hits - Candidate status tracking and interactions
+
+🛠️ Technology Stack
+Backend: Laravel PHP framework
+
+Frontend: Modern JavaScript framework (React/Vue)
+
+AI Integration: OpenAI GPT/other ML models
+
+Database: MySQL/PostgreSQL
+
+File Storage: AWS S3 or similar
+
+🌟 Benefits
+Time Efficiency: Reduces manual screening time by up to 70%
+
+Consistency: Standardized evaluation process for all candidates
+
+Data-Driven: AI-powered insights for better hiring decisions
+
+Scalable: Handles multiple vacancies and candidates simultaneously
+
+User-Friendly: Intuitive interface for both HR and candidates
+
+📊 Workflow
+HR creates vacancy with basic description
+
+AI suggests relevant skills and competencies
+
+Candidates apply with their resumes
+
+AI generates personalized interview questions
+
+Candidates complete AI-conducted interviews
+
+AI evaluates responses and provides comprehensive scoring
+
+HR reviews results and makes informed hiring decisions

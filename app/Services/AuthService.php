@@ -43,24 +43,6 @@ class AuthService
         ]);
     }
 
-    public function createToken($userID)
-    {
-        $token = Token::where('user_id', $userID)
-            ->first();
-
-        if (!$token) {
-            $token = Token::create([
-                'value' => Str::random(60),
-                'user_id' => $userID,
-            ]);
-        } else {
-            $token->value = Str::random(60);
-            $token->save();
-        }
-
-        return $token;
-    }
-
     public function register($request)
     {
         $data = $request->validated();
@@ -74,13 +56,13 @@ class AuthService
         if (!$user) {
             $user = User::create($data);
 
-            return true;
+            return $this->notice('200', 'Успешно!');
         }
 
         if ($user->status !== 'active' && $user->status !== 'blocked') {
             $user->update(['status' => 'active']);
 
-            return true;
+            return $this->notice('200', 'Успешно!');
         }
 
         return $this->notice('403', 'Ваш аккаунт заблокирован!');
@@ -100,10 +82,29 @@ class AuthService
         Session::forget('user_id');
 
         if (!is_null($auth)) {
-            return $auth->delete();
+            $auth->delete();
+            return $this->notice('200', 'Успешно!');
         }
 
         return true;
+    }
+
+    private function createToken($userID)
+    {
+        $token = Token::where('user_id', $userID)
+            ->first();
+
+        if (!$token) {
+            $token = Token::create([
+                'value' => Str::random(60),
+                'user_id' => $userID,
+            ]);
+        } else {
+            $token->value = Str::random(60);
+            $token->save();
+        }
+
+        return $token;
     }
 
     private function notice($code, $message = null, $data = null)

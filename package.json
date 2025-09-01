@@ -1,17 +1,49 @@
 {
-    "$schema": "https://json.schemastore.org/package.json",
     "private": true,
-    "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+        "cleanup": "rimraf public/mix-manifest.json",
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
     },
     "devDependencies": {
-        "@tailwindcss/vite": "^4.0.0",
-        "axios": "^1.11.0",
-        "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^2.0.0",
-        "tailwindcss": "^4.0.0",
-        "vite": "^7.0.4"
+        "@babel/core": "^7.25.7",
+        "@babel/preset-env": "^7.25.7",
+        "@vue/compiler-sfc": "^3.5.10",
+        "@yandex/ymaps3-types": "^1.0.16076882",
+        "autoprefixer": "10.4.20",
+        "axios": "^1.7.7",
+        "babel-loader": "^9.2.1",
+        "css-loader": "^7.1.2",
+        "fslightbox-vue": "^2.1.3",
+        "laravel-mix": "^6.0.49",
+        "lodash": "^4.17.21",
+        "mini-css-extract-plugin": "^2.9.1",
+        "postcss": "^8.4.47",
+        "postcss-loader": "^8.1.1",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.79.4",
+        "sass-loader": "^16.0.2",
+        "stylelint": "^16.9.0",
+        "stylelint-config-standard": "^36.0.1",
+        "stylelint-scss": "^6.7.0",
+        "webpack": "^5.95.0",
+        "webpack-bundle-analyzer": "^4.10.2",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "rgbaster": "^2.1.1",
+        "swiper": "^11.1.14",
+        "v-mask": "^2.3.0",
+        "vue": "^3.5.10",
+        "vue-final-modal": "^4.5.5",
+        "vue-loader": "^17.4.2",
+        "vue-toast-notification": "^3.1.3",
+        "vue-yandex-maps": "^0.12.3",
+        "vue3-perfect-scrollbar": "^2.0.0"
     }
 }

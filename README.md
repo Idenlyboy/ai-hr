@@ -43,7 +43,6 @@
 - **Frontend**: VueJs
 - **AI Integration**: Любая ML модель
 - **Database**: SQLite
-- **File Storage**: AWS S3 или подобное
 
 ---
 
@@ -93,7 +92,6 @@ The application is built on modern technology stack with clear data model separa
 - **Frontend**: VueJs
 - **AI Integration**: Any ML model
 - **Database**: SQLite
-- **File Storage**: AWS S3 or similar
 
 ## 🌟 Benefits
 

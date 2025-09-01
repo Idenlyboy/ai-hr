@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
             $table->string('value')->nullable();
+            $table->enum('role', ['hunter', 'hr', 'admin'])->nullable();
             $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });

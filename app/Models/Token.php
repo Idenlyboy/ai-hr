@@ -8,6 +8,7 @@ class Token extends Model
 {
     protected $fillable = [
         'value',
+        'role',
         'user_id',
     ];
 }

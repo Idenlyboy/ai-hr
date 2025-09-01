@@ -10,7 +10,6 @@ class User extends Model
         'tg_id',
         'email',
         'password',
-        'token',
         'role',
         'status'
     ];

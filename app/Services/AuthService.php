@@ -4,13 +4,20 @@ namespace App\Services;
 
 use App\Models\Token;
 use App\Models\User;
+use App\NoticeTrait;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthService
 {
+    use NoticeTrait;
 
+    /**
+     * Login user logic
+     * @param mixed $request
+     * @return array{code: mixed}
+     */
     public function login($request)
     {
         $data = $request->validated();
@@ -30,6 +37,7 @@ class AuthService
 
         $token = $this->createToken($user->id);
 
+        Session::put('role', $user->role);
         Session::put('token', $token->value);
         Session::put('user_id', $user->id);
 
@@ -43,6 +51,11 @@ class AuthService
         ]);
     }
 
+    /**
+     * Register hunter/hr logic
+     * @param mixed $request
+     * @return array{code: mixed}
+     */
     public function register($request)
     {
         $data = $request->validated();
@@ -68,6 +81,10 @@ class AuthService
         return $this->notice('403', 'Ваш аккаунт заблокирован!');
     }
 
+    /**
+     * Logout user logic
+     * @return mixed|bool
+     */
     public function logout()
     {
         $sessionToken = Session::get('token') ?? null;
@@ -79,6 +96,7 @@ class AuthService
         $auth = Token::where('value', $sessionToken)->first();
 
         Session::forget('token');
+        Session::forget('role');
         Session::forget('user_id');
 
         if (!is_null($auth)) {
@@ -89,6 +107,11 @@ class AuthService
         return true;
     }
 
+    /**
+     * Create auth Token logic
+     * @param mixed $userID
+     * @return Token
+     */
     private function createToken($userID)
     {
         $token = Token::where('user_id', $userID)
@@ -105,16 +128,5 @@ class AuthService
         }
 
         return $token;
-    }
-
-    private function notice($code, $message = null, $data = null)
-    {
-        return [
-            [
-                'message' => $message,
-                'data' => $data,
-            ],
-            'code' => $code,
-        ];
     }
 }

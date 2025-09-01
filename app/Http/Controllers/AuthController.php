@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
     /**
-     * Login page
+     * Get Login page
      * @return \Illuminate\Contracts\View\View | \Illuminate\Http\RedirectResponse
      */
     public function login()
@@ -22,7 +22,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Login admin page
+     * Get Login admin page
      * @return \Illuminate\Contracts\View\View | \Illuminate\Http\RedirectResponse
      */
     public function loginAdmin()
@@ -35,7 +35,7 @@ class AuthController extends Controller
     }
 
     /**
-     * User registration page
+     * Get User registration page
      * @return \Illuminate\Contracts\View\View
      */
     public function registration()
@@ -44,7 +44,7 @@ class AuthController extends Controller
     }
 
     /**
-     * User register
+     * Register User 
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(UserRegRequest $request, AuthService $authService)
@@ -53,7 +53,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Authenticate user
+     * Authenticate User
      * @return \Illuminate\Http\JsonResponse
      */
     public function auth(LoginRequest $request, AuthService $authService)
@@ -62,7 +62,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Logout user
+     * Logout User
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout(AuthService $authService)

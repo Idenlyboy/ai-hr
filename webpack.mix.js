@@ -18,7 +18,6 @@ mix.js('resources/js/app.js', 'public/js')
     .setPublicPath('public')
     .options({
         processCssUrls: false,
-        postCss: [require('postcss-import'), require('autoprefixer')],
     })
     .webpackConfig({
         stats: {
@@ -29,6 +28,7 @@ mix.js('resources/js/app.js', 'public/js')
                 '@storage': path.join(__dirname, 'resources/js/storage'),
                 '@composables': path.join(__dirname, 'resources/js/composables'),
                 '@components': path.join(__dirname, 'resources/js/components'),
+                '@ui': path.join(__dirname, 'resources/js/components/ui'),
             }
         },
     })

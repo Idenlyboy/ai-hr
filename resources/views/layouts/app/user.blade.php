@@ -5,6 +5,7 @@
 
         @section('header')
         @include('layouts.header.layout')
+        @include('layouts.side-navigation.layout')
         @show
 
         @yield('content')

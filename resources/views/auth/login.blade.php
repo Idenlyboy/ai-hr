@@ -3,7 +3,9 @@
 @section('title', 'Авторизация')
 
 @section('content')
+    <div class="container">
+        <login-form></login-form>
+    </div>
 
-    <login-form></login-form>
 
 @endsection

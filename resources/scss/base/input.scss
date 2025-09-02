@@ -1,0 +1,126 @@
+.input-wrapper {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--tg-theme-text-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-field {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    transition: all 0.2s ease;
+    min-height: 52px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--tg-theme-button-color);
+    box-shadow: 0 0 0 3px rgba(64, 167, 227, 0.1);
+}
+
+.input-field::placeholder {
+    color: var(--tg-theme-hint-color);
+}
+
+.input-field.input-error {
+    border-color: #e53935;
+    box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+}
+
+.input-field.input-disabled {
+    background-color: var(--tg-theme-secondary-bg-color);
+    color: var(--tg-theme-hint-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.error-message {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    font-size: 0.75rem;
+    color: #e53935;
+    margin-top: 4px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.password-toggle:hover {
+    background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.password-toggle:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.toggle-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--tg-theme-hint-color);
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover .toggle-icon {
+    color: var(--tg-theme-text-color);
+}
+
+@media (max-width: 768px) {
+    .input-field {
+        padding: 14px;
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    .input-label {
+        font-size: 0.8125rem;
+    }
+
+    .error-message {
+        font-size: 0.6875rem;
+        bottom: -18px;
+    }
+
+    .password-toggle {
+        right: 10px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .toggle-icon {
+        width: 18px;
+        height: 18px;
+    }
+}

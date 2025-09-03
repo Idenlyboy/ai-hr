@@ -11,6 +11,7 @@ class Vacation extends Model
         'question_count',
         'difficulty',
         'description',
+        'speach_kit',
         'file',
         'status',
     ];

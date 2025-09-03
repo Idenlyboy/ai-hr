@@ -25,6 +25,7 @@ class VacationRequest extends FormRequest
             'question_count',
             'difficulty',
             'description',
+            'speach_kit',
             'file',
             'status',
         ];

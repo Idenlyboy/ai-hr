@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained();
             $table->integer('question_count')->default(3);
             $table->integer('difficulty')->nullable();
+            $table->string('speach_kit')->nullable();
             $table->text('description')->nullable();
             $table->string('file')->nullable();
             $table->string('status')->nullable();

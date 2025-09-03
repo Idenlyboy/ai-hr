@@ -33,6 +33,7 @@ const props = defineProps({
     name: String,
     disabled: Boolean,
     required: Boolean,
+    placeholder: String,
     class: String,
     errors: Object,
     modelValue: String,

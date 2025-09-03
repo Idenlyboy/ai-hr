@@ -7,7 +7,7 @@
                 </h1>
 
                 <form class="auth-form" @submit.prevent="onSubmit">
-                    <div class="role-selector">
+                    <div v-if="role !== 'admin'" class="role-selector">
                         <label class="role-option" @click="setUserEntity('hunter')">
                             <input type="radio" value="hunter" name="status"
                                 :checked="formData.userEntity === 'hunter'">
@@ -26,7 +26,7 @@
                         <InputPass v-model="formData.password" name="password" label="Пароль" :errors="errors"
                             :required="true"></InputPass>
 
-                        <div class="forgot-password">
+                        <div v-if="role !== 'admin'" class="forgot-password">
                             <a class="link-button" href="#">
                                 Забыли пароль?
                             </a>
@@ -38,7 +38,7 @@
                     </div>
                 </form>
 
-                <div class="auth-footer">
+                <div v-if="role !== 'admin'" class="auth-footer">
                     <span class="footer-text">Нет аккаунта?</span>
                     <a class="link-button" :href="endpoints.auth.registration">
                         Зарегистрироваться
@@ -56,6 +56,8 @@ import loginService from './services/loginService';
 import { endpoints } from '@storage/endpoints';
 
 const { loginHandler, errors } = loginService();
+
+const { role } = defineProps(['role']);
 
 const formData = ref({
     email: '',

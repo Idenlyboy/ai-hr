@@ -14,7 +14,7 @@ const loginService = () => {
         try {
             const response = await axios.post(url, formData);
 
-            localStorage.setItem('auth', JSON.stringify(response.data));
+            localStorage.setItem('auth', JSON.stringify(response.data.data));
 
             window.location.href = '/';
 

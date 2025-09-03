@@ -69,4 +69,14 @@ class AuthController extends Controller
     {
         return response()->json($authService->logout());
     }
+
+    /**
+     * Logout User for http request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function authLogout(AuthService $authService)
+    {
+        $authService->logout();
+        return redirect('/');
+    }
 }

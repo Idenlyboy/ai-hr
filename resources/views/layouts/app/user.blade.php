@@ -3,14 +3,12 @@
 <body>
     <main id="app">
 
-        @section('header')
         @include('layouts.header.layout')
         @include('layouts.side-navigation.layout')
         @show
 
         @yield('content')
 
-        @section('footer')
         @include('layouts.footer.layout')
         @show
     </main>

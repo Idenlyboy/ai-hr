@@ -6,10 +6,12 @@ const logoutService = () => {
     const logoutHandler = async () => {
         const url = endpoints.auth.logout;
 
+        localStorage.removeItem('auth');
+
         try {
             const response = await axios.post(url);
-            if (response.data.success) {
-                localStorage.removeItem('auth');
+            if (response.data.status == 200) {
+
                 window.location.href = endpoints.auth.loginPage;
 
                 return true;

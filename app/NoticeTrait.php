@@ -7,10 +7,8 @@ trait NoticeTrait
     public function notice($code, $message = null, $data = null)
     {
         return [
-            [
-                'message' => $message,
-                'data' => $data,
-            ],
+            'message' => $message,
+            'data' => $data,
             'code' => $code,
         ];
     }

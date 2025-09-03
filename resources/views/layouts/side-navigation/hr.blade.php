@@ -34,13 +34,26 @@
                 <span>Профиль</span>
             </a>
         </li>
+
+        <li class="side-nav__item">
+            <a href="#" class="side-nav__link">
+                <svg class="side-nav__icon" viewBox="0 0 24 24" fill="none">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5">
+                        <rect width="15" height="18.5" x="4.5" y="2.75" rx="3.5" />
+                        <path d="M8.5 6.755h7m-7 4h7m-7 4H12" />
+                    </g>
+                </svg>
+                <span>Мои вакансии</span>
+            </a>
+        </li>
     </ul>
 
     <div class="side-nav__divider"></div>
 
     <ul class="side-nav__menu">
         <li class="side-nav__item">
-            <a href="#" class="side-nav__link">
+            <a href="{{ route('auth.logout') }}" class="side-nav__link">
                 <svg class="side-nav__icon" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V9"

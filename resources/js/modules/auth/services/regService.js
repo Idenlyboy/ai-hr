@@ -14,7 +14,7 @@ const regService = () => {
         try {
             const response = await axios.post(url, formData);
 
-            if (response.data.success) {
+            if (response.data.status == 200) {
                 notify.success('Успешно!');
 
                 return true;

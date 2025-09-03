@@ -5,4 +5,6 @@
 
 @if ($isAuth)
     @include('layouts.header.' . $role)
+@else
+    @include('layouts.header.guest')
 @endif

@@ -20,6 +20,7 @@ __webpack_require__.r(__webpack_exports__);
     name: String,
     disabled: Boolean,
     required: Boolean,
+    placeholder: String,
     "class": String,
     errors: Object,
     modelValue: String
@@ -103,7 +104,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$emit('update:modelValue', $event.target.value);
     }),
-    placeholder: _ctx.placeholder
+    placeholder: $props.placeholder
   }, null, 42 /* CLASS, PROPS, NEED_HYDRATION */, _hoisted_4), $props.errors && $props.errors[$props.name] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.errors[$props.name][0]), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "password-toggle",
     type: "button",

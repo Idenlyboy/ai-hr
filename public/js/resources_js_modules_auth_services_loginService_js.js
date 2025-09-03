@@ -38,7 +38,7 @@ var loginService = function loginService() {
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post(url, formData);
           case 2:
             response = _context.v;
-            localStorage.setItem('auth', JSON.stringify(response.data));
+            localStorage.setItem('auth', JSON.stringify(response.data.data));
             window.location.href = '/';
             return _context.a(2, true);
           case 3:

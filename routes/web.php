@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::get('/login/', [AuthController::class, 'login'])->name('login.page');
 Route::get('/admin/login/', [AuthController::class, 'loginAdmin'])->name('login.admin.page');
+Route::get('/logout/', [AuthController::class, 'authLogout'])->name('auth.logout');
 
 Route::get('/registration/', [AuthController::class, 'registration'])->name('user.registration');
 

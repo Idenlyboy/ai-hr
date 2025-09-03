@@ -4,6 +4,6 @@
 
 @section('content')
 
-    <login-form :role="admin"></login-form>
+    <login-form role="admin"></login-form>
 
 @endsection

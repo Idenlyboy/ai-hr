@@ -48,6 +48,7 @@ class AuthService
             'surname' => $user->surname,
             'email' => $user->email,
             'role' => $user->role,
+            'token' => $token->value,
         ]);
     }
 
@@ -89,7 +90,7 @@ class AuthService
     {
         $sessionToken = Session::get('token') ?? null;
 
-        if (!is_null($sessionToken)) {
+        if (is_null($sessionToken)) {
             return $this->notice('401', 'Вы не авторизованы!');
         }
 

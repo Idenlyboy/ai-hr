@@ -29028,16 +29028,16 @@ var logoutService = function logoutService() {
         while (1) switch (_context.p = _context.n) {
           case 0:
             url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_1__.endpoints.auth.logout;
+            localStorage.removeItem('auth');
             _context.p = 1;
             _context.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(url);
           case 2:
             response = _context.v;
-            if (!response.data.success) {
+            if (!(response.data.status == 200)) {
               _context.n = 3;
               break;
             }
-            localStorage.removeItem('auth');
             window.location.href = _storage_endpoints__WEBPACK_IMPORTED_MODULE_1__.endpoints.auth.loginPage;
             return _context.a(2, true);
           case 3:

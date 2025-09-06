@@ -419,7 +419,7 @@ var regService = function regService() {
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post(url, formData);
           case 2:
             response = _context.v;
-            if (!(response.data.status == 200)) {
+            if (!(response.status == 200)) {
               _context.n = 3;
               break;
             }

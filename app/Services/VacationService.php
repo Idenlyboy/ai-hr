@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\Vacation;
+use App\Models\Hit;
+use App\Models\User;
 use App\NoticeTrait;
+use App\Models\Vacation;
 use Illuminate\Support\Facades\Session;
 
 class VacationService
@@ -19,12 +21,13 @@ class VacationService
     public function paginate()
     {
         $page = request('page') ?? 1;
+        $isAuth = Session::has('token');
         $userRole = Session::get('role');
         $userID = Session::get('user_id');
 
         $vacations = Vacation::where('status', '<>', 'draft');
 
-        if ($userRole === 'hunter') {
+        if ($userRole === 'hunter' || !$isAuth) {
             $vacations = $vacations->where('status', 'published');
         }
 
@@ -61,6 +64,40 @@ class VacationService
         }
 
         return $vacation;
+    }
+
+    public function hunterApply($request)
+    {
+        $data = $request->validate([
+            'vacation_id' => 'required|integer',
+            'resume_id' => 'required|integer',
+        ]);
+
+        $vacationID = $data['vacation_id'];
+        $resumeID = $data['resume_id'];
+        $userID = Session::get('user_id');
+
+        $hunter = User::where('id', $userID)
+            ->where('role', 'hunter')
+            ->where('status', 'active')
+            ->first();
+
+        $vacation = Vacation::where('id', $vacationID)
+            ->where('status', 'published')
+            ->first();
+
+        if (!$vacation) {
+            return $this->notice('404', 'Вакансия не найдена!');
+        }
+
+        // need check if Hit exists
+
+        $hit = Hit::create([
+            'vacation_id' => $vacationID,
+            'resume_id' => $resumeID,
+            'hunter_status' => 'applied',
+            'status' => 'new',
+        ]);
     }
 
     /**
@@ -141,7 +178,7 @@ class VacationService
             return $this->notice('403', 'Вы не можете удалить эту вакансию!');
         }
 
-        $success = $vacation->update(['status' => 'draft']);
+        $vacation->update(['status' => 'draft']);
 
         return $this->notice('200', 'Успешно!');
     }

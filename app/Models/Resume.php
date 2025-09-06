@@ -8,7 +8,7 @@ class Resume extends Model
 {
     protected $fillable = [
         'user_id',
-        'vacation_id',
+        'title',
         'name',
         'lastname',
         'surname',

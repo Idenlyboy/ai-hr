@@ -618,7 +618,7 @@ var loginService = function loginService() {
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({});
   var loginHandler = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(formData) {
-      var url, response, _error$response, _error$response$messa, _error$response2, _t;
+      var url, response, _error$response, _error$response$data$, _error$response2, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -638,7 +638,7 @@ var loginService = function loginService() {
             if (_t !== null && _t !== void 0 && (_error$response = _t.response) !== null && _error$response !== void 0 && (_error$response = _error$response.data) !== null && _error$response !== void 0 && _error$response.errors) {
               errors.value = _t.response.data.errors;
             }
-            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].error((_error$response$messa = _t === null || _t === void 0 || (_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.message) !== null && _error$response$messa !== void 0 ? _error$response$messa : 'Произошла ошибка при входе!');
+            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].error((_error$response$data$ = _t === null || _t === void 0 || (_error$response2 = _t.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.message) !== null && _error$response$data$ !== void 0 ? _error$response$data$ : 'Произошла ошибка при входе!');
             return _context.a(2, false);
         }
       }, _callee, null, [[1, 3]]);

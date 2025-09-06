@@ -139,11 +139,7 @@ class ApiRouteAccessMiddleware
 
         $entity = str_replace('Controller', '', $controllerName);
 
-        if (substr($entity, -1) === 'y') {
-            $entity = substr_replace($entity, 'ie', -1);
-        }
-
-        return strtolower($entity) . 's';
+        return strtolower($entity);
     }
 
     private function getMethod($request)

@@ -4,8 +4,8 @@ return [
     'hunter' => [
         'entities' => [
             'user' => ['update'],
-            'resume' => ['store', 'update', 'paginate', 'archive'],
-            'vacation' => ['paginate', 'respond'],
+            'resume' => ['get', 'store', 'update', 'paginate', 'archive'],
+            'vacation' => ['paginate', 'hunterApply'],
             'file' => ['store', 'destroy'],
         ],
         'access' => 'limited',

@@ -49,7 +49,9 @@ class AuthController extends Controller
      */
     public function register(UserRegRequest $request, AuthService $authService)
     {
-        return response()->json($authService->register($request));
+        $result = $authService->register($request);
+
+        return response()->json($result['data'], $result['code']);
     }
 
     /**
@@ -58,7 +60,9 @@ class AuthController extends Controller
      */
     public function auth(LoginRequest $request, AuthService $authService)
     {
-        return response()->json($authService->login($request));
+        $result = $authService->login($request);
+
+        return response()->json($result['data'], $result['code']);
     }
 
     /**
@@ -67,7 +71,9 @@ class AuthController extends Controller
      */
     public function logout(AuthService $authService)
     {
-        return response()->json($authService->logout());
+        $result = $authService->logout();
+
+        return response()->json($result['data'], $result['code']);
     }
 
     /**
@@ -77,6 +83,7 @@ class AuthController extends Controller
     public function authLogout(AuthService $authService)
     {
         $authService->logout();
+
         return redirect('/');
     }
 }

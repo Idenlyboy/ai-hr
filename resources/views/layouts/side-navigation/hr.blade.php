@@ -36,7 +36,7 @@
         </li>
 
         <li class="side-nav__item">
-            <a href="#" class="side-nav__link">
+            <a href="{{ route('vacation.page') }}" class="side-nav__link">
                 <svg class="side-nav__icon" viewBox="0 0 24 24" fill="none">
                     <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="1.5">

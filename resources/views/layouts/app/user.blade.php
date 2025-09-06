@@ -2,12 +2,14 @@
 
 <body>
     <main id="app">
-
         @include('layouts.header.layout')
-        @include('layouts.side-navigation.layout')
         @show
 
-        @yield('content')
+        <div class="container-flex-row">
+            @include('layouts.side-navigation.layout')
+            @yield('content')
+        </div>
+
 
         @include('layouts.footer.layout')
         @show

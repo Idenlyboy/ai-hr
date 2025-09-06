@@ -24,7 +24,7 @@ const loginService = () => {
                 errors.value = error.response.data.errors;
             }
 
-            notify.error(error?.response?.message ?? 'Произошла ошибка при входе!');
+            notify.error(error?.response?.data?.message ?? 'Произошла ошибка при входе!');
 
             return false;
         }

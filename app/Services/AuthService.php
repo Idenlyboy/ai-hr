@@ -35,7 +35,7 @@ class AuthService
             return $this->notice('401', 'Неверная почта или пароль');
         }
 
-        $token = $this->createToken($user->id);
+        $token = $this->createToken($user);
 
         Session::put('role', $user->role);
         Session::put('token', $token->value);
@@ -105,7 +105,7 @@ class AuthService
             return $this->notice('200', 'Успешно!');
         }
 
-        return true;
+        return $this->notice('200', 'Успешно!');
     }
 
     /**
@@ -113,15 +113,16 @@ class AuthService
      * @param mixed $userID
      * @return Token
      */
-    private function createToken($userID)
+    private function createToken($user)
     {
-        $token = Token::where('user_id', $userID)
+        $token = Token::where('user_id', $user->id)
             ->first();
 
         if (!$token) {
             $token = Token::create([
                 'value' => Str::random(60),
-                'user_id' => $userID,
+                'role' => $user->role,
+                'user_id' => $user->id,
             ]);
         } else {
             $token->value = Str::random(60);

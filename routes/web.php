@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VacationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,6 +15,8 @@ Route::get('/logout/', [AuthController::class, 'authLogout'])->name('auth.logout
 
 Route::get('/registration/', [AuthController::class, 'registration'])->name('user.registration');
 
-Route::middleware('web.route.access')->group(function () {
+Route::get('/vacations/', [VacationController::class, 'index'])->name('vacation.page');
 
+Route::middleware('web.route.access')->group(function () {
+    Route::get('/vacation/edit/{id?}', [VacationController::class, 'edit'])->name('vacation.edit');
 });

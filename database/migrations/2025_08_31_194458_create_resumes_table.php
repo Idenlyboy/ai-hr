@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('vacation_id')->constrained();
             $table->string('name')->nullable();
+            $table->string('title')->nullable();
             $table->string('lastname')->nullable();
             $table->string('surname')->nullable();
             $table->date('date_of_birth')->nullable();

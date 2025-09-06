@@ -10,7 +10,7 @@ const logoutService = () => {
 
         try {
             const response = await axios.post(url);
-            if (response.data.status == 200) {
+            if (response.status == 200) {
 
                 window.location.href = endpoints.auth.loginPage;
 

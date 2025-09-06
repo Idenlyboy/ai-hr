@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Services\VacationService;
 use App\Http\Requests\VacationRequest;
 
@@ -25,7 +26,9 @@ class VacationController extends Controller
      */
     public function index(VacationService $vacationService)
     {
-        return view('', $vacationService->paginate());
+        return view('vacation.index', [
+            'vacations' => $vacationService->paginate()
+        ]);
     }
 
     /**
@@ -35,7 +38,9 @@ class VacationController extends Controller
      */
     public function list(VacationService $vacationService)
     {
-        return view('', $vacationService->paginate());
+        return view('', [
+            'vacations' => $vacationService->paginate()
+        ]);
     }
 
     /**
@@ -53,9 +58,24 @@ class VacationController extends Controller
      * @param \App\Services\VacationService $vacationService
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit($id, VacationService $vacationService)
+    public function edit($id = null, VacationService $vacationService)
     {
-        return view('', $vacationService->getByID($id));
+        $data = [
+            'vacation' => [],
+        ];
+
+        if (!is_null($id)) {
+            $data['vacation'] = $vacationService->getByID($id);
+        }
+
+        return view('', $data);
+    }
+
+    public function hunterApply(Request $request, VacationService $vacationService)
+    {
+        $result = $vacationService->hunterApply($request);
+
+        return response()->json($result['data'], $result['code']);
     }
 
     /**
@@ -66,7 +86,9 @@ class VacationController extends Controller
      */
     public function store(VacationRequest $request, VacationService $vacationService)
     {
-        return response()->json($vacationService->store($request));
+        $result = $vacationService->store($request);
+
+        return response()->json($result['data'], $result['code']);
     }
 
     /**
@@ -78,7 +100,9 @@ class VacationController extends Controller
      */
     public function update($id, VacationRequest $request, VacationService $vacationService)
     {
-        return response()->json($vacationService->update($id, $request));
+        $result = $vacationService->update($id, $request);
+
+        return response()->json($result['data'], $result['code']);
     }
 
     /**
@@ -89,6 +113,8 @@ class VacationController extends Controller
      */
     public function destroy($id, VacationService $vacationService)
     {
-        return response()->json($vacationService->destroy($id));
+        $result = $vacationService->destroy($id);
+
+        return response()->json($result['data'], $result['code']);
     }
 }

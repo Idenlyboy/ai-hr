@@ -5,3 +5,5 @@
 @use './layouts/side-nav.scss' as *;
 @use './layouts/footer.scss' as *;
 @use './modules/auth/auth.scss' as *;
+@use './modules/vacation/list.scss' as *;
+@use './ui/modal.scss' as *;

@@ -1,10 +1,10 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_modules_auth_services_loginService_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_modules_vacation_services_actionService_js"],{
 
-/***/ "./resources/js/modules/auth/services/loginService.js":
-/*!************************************************************!*\
-  !*** ./resources/js/modules/auth/services/loginService.js ***!
-  \************************************************************/
+/***/ "./resources/js/modules/vacation/services/actionService.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/modules/vacation/services/actionService.js ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -23,45 +23,80 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 
 
-var loginService = function loginService() {
+var actionService = function actionService() {
   var errors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({});
-  var loginHandler = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(formData) {
-      var url, response, _error$response, _error$response$data$, _error$response2, _t;
+  var aiProcess = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(id) {
+      var url, _error$response$data$, _error, response, _error$response$data$2, _error$response, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
-            errors.value = {};
-            url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_2__.endpoints.auth.login;
+            url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_2__.endpoints.vacation.aiProcess + id;
             _context.p = 1;
             _context.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post(url, formData);
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post(url);
           case 2:
             response = _context.v;
-            localStorage.setItem('auth', JSON.stringify(response.data.data));
-            window.location.href = '/';
+            if (!(response.status == 200)) {
+              _context.n = 3;
+              break;
+            }
+            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].success('ИИ начал обработку!');
             return _context.a(2, true);
           case 3:
-            _context.p = 3;
+            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].error((_error$response$data$ = (_error = error) === null || _error === void 0 || (_error = _error.response) === null || _error === void 0 || (_error = _error.data) === null || _error === void 0 ? void 0 : _error.message) !== null && _error$response$data$ !== void 0 ? _error$response$data$ : 'Что-то пошло не так!');
+            return _context.a(2, false);
+          case 4:
+            _context.p = 4;
             _t = _context.v;
-            if (_t !== null && _t !== void 0 && (_error$response = _t.response) !== null && _error$response !== void 0 && (_error$response = _error$response.data) !== null && _error$response !== void 0 && _error$response.errors) {
-              errors.value = _t.response.data.errors;
-            }
-            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].error((_error$response$data$ = _t === null || _t === void 0 || (_error$response2 = _t.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.message) !== null && _error$response$data$ !== void 0 ? _error$response$data$ : 'Произошла ошибка при входе!');
+            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].error((_error$response$data$2 = _t === null || _t === void 0 || (_error$response = _t.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.message) !== null && _error$response$data$2 !== void 0 ? _error$response$data$2 : 'Произошла ошибка при обработке ИИ!');
             return _context.a(2, false);
         }
-      }, _callee, null, [[1, 3]]);
+      }, _callee, null, [[1, 4]]);
     }));
-    return function loginHandler(_x) {
+    return function aiProcess(_x) {
       return _ref.apply(this, arguments);
     };
   }();
+  var hunterApply = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(formData) {
+      var url, _error$response$data$3, _error2, response, _error$response$data$4, _error$response2, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_2__.endpoints.vacation.hunterApply;
+            _context2.p = 1;
+            _context2.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post(url, formData);
+          case 2:
+            response = _context2.v;
+            if (!(response.status == 200)) {
+              _context2.n = 3;
+              break;
+            }
+            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].success('Отклик отправлен!');
+            return _context2.a(2, true);
+          case 3:
+            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].error((_error$response$data$3 = (_error2 = error) === null || _error2 === void 0 || (_error2 = _error2.response) === null || _error2 === void 0 || (_error2 = _error2.data) === null || _error2 === void 0 ? void 0 : _error2.message) !== null && _error$response$data$3 !== void 0 ? _error$response$data$3 : 'Что-то пошло не так!');
+            return _context2.a(2, false);
+          case 4:
+            _context2.p = 4;
+            _t2 = _context2.v;
+            _composables_notifyService__WEBPACK_IMPORTED_MODULE_3__["default"].error((_error$response$data$4 = _t2 === null || _t2 === void 0 || (_error$response2 = _t2.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.message) !== null && _error$response$data$4 !== void 0 ? _error$response$data$4 : 'Произошла ошибка при отклике!');
+            return _context2.a(2, false);
+        }
+      }, _callee2, null, [[1, 4]]);
+    }));
+    return function hunterApply(_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
   return {
-    loginHandler: loginHandler,
-    errors: errors
+    aiProcess: aiProcess,
+    hunterApply: hunterApply
   };
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loginService);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (actionService);
 
 /***/ })
 

@@ -1,13 +1,12 @@
 <?php
 
 return [
-    'service_url' => env('AI_SERVICE_URL', 'http://localhost:8000'),
-    'timeout' => env('AI_TIMEOUT', 30),
-    'api_key' => env('AI_API_KEY'),
+    'service_url' => env('WEBHOOK_SERVICE_URL', 'http://localhost:8000'),
+    'secret_token' => env('WEBHOOK_SECRET_TOKEN'),
 
     'endpoints' => [
-        'generate_skills' => '/api/generate-skills',
-        'evaluate_answers' => '/api/evaluate-answers',
+        'rank_resumes' => '/api/v1/webhook/rank-resumes',
+        'analyze-interview' => '/api/v1/webhook/analyze-interview',
     ],
 ];
 

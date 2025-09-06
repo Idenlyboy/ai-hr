@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->bigInteger('tg_id')->nullable();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
-            $table->string('token')->nullable();
             $table->string('status')->default('active');
             $table->enum('role', ['hunter', 'hr', 'admin'])->default('hunter');
             $table->timestamps();

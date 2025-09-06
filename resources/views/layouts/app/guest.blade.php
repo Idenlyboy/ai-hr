@@ -2,13 +2,11 @@
 
 <body>
     <main id="app">
-        @section('header')
         @include('layouts.header.layout')
         @show
 
         @yield('content')
 
-        @section('footer')
         @include('layouts.footer.layout')
         @show
     </main>

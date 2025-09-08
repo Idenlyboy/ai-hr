@@ -1,14 +1,4 @@
 <div class="side-nav">
-
-    <div class="side-nav__header">
-        <div class="side-nav__user">
-            <div class="side-nav__avatar">ИИ</div>
-            <div class="side-nav__user-info">
-                <div class="side-nav__username">Иван Иванов</div>
-                <div class="side-nav__email">ivan@example.com</div>
-            </div>
-        </div>
-    </div>
     <ul class="side-nav__menu">
         <li class="side-nav__item">
             <a href="#" class="side-nav__link side-nav__link--active">

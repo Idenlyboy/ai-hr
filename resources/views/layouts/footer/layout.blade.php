@@ -12,7 +12,7 @@
         </div>
 
         <div class="footer__bottom">
-            <div class="footer__copyright">© 2024 Личный кабинет. Все права защищены.</div>
+            <div class="footer__copyright">© 2025 Личный кабинет. Все права защищены.</div>
 
             <div class="footer__social">
                 <a href="#" class="footer__social-link">📘</a>

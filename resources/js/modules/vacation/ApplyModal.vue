@@ -64,6 +64,7 @@ const selectResume = (resume) => {
 const confirmSelection = async () => {
     if (selectedResume.value) {
         methods.applyForVacation(selectedResume.value.id);
+        selectedResume.value = null;
         modal.show = false;
         return true;
     }
@@ -73,12 +74,25 @@ const getStatusLabel = (status) => {
     const statusLabels = {
         draft: 'Черновик',
         published: 'Опубликовано',
-        archived: 'В архиве'
+        archived: 'В архиве',
     };
+
     return statusLabels[status] || status;
 };
 
 onMounted(async () => {
+    const auth = localStorage.getItem('auth');
+
+    if (!auth) {
+        return false;
+    }
+
+    const authData = JSON.parse(auth);
+
+    if (authData?.role !== 'hunter') {
+        return false;
+    }
+
     const url = endpoints.resume.get;
 
     try {

@@ -1,0 +1,17 @@
+{
+    "name": "Личный кабинет",
+    "short_name": "LK",
+    "description": "Платформа для поиска работы и подбора персонала",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4f46e5",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/images/favicon/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ]
+}

@@ -17,6 +17,7 @@ Route::get('/registration/', [AuthController::class, 'registration'])->name('use
 
 Route::get('/vacations/', [VacationController::class, 'index'])->name('vacation.page');
 
+// Auth routes
 Route::middleware('web.route.access')->group(function () {
     Route::get('/vacation/edit/{id?}', [VacationController::class, 'edit'])->name('vacation.edit');
 });

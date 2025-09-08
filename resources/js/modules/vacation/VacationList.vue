@@ -10,10 +10,10 @@
             </div>
         </div>
 
-        <div class="vacations-grid">
+        <div class="vacations-rows">
             <div v-for="vacation in vacations?.data" :key="vacation.id" class="vacation-card">
                 <div class="card-header">
-                    <h3 class="vacation-title">{{ vacation.description }}</h3>
+                    <h3 class="vacation-title">{{ vacation.title }}</h3>
                     <div class="card-actions">
                         <a v-if="['hr', 'admin'].includes(userRole)" :href="endpoints.vacation.edit + vacation.id"
                             class="edit-btn" title="Редактировать">
@@ -64,7 +64,7 @@
                     </button>
                 </div>
 
-                <div v-if="userRole === 'hr' && vacation.user_id === authData.user_id" class="action-section">
+                <div v-if="userRole === 'hr' && vacation.user_id === auth.user_id" class="action-section">
                     <button @click="applyAiProcess(vacation.id)" class="apply-btn">
                         🎯 Обработать ИИ
                     </button>
@@ -83,7 +83,7 @@
             <p class="empty-text">Нет доступных вакансий</p>
         </div>
     </div>
-    <ApplyModal :modal="modals.apply" :methods="methods"></ApplyModal>
+    <ApplyModal v-if="vacations?.data?.length > 0" :modal="modals.apply" :methods="methods"></ApplyModal>
 </template>
 
 <script setup>
@@ -105,15 +105,16 @@ const modals = ref({
     },
 })
 
-const userRole = ref('guest')
+const auth = ref(null);
+const userRole = ref('guest');
 
 onMounted(() => {
     const authData = localStorage.getItem('auth');
 
     if (authData) {
         try {
-            const auth = JSON.parse(authData);
-            userRole.value = auth.role || 'guest';
+            auth.value = JSON.parse(authData);
+            userRole.value = auth.value?.role || 'guest';
         } catch (e) {
             userRole.value = 'guest';
         }

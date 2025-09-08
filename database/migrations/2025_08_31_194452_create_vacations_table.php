@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('vacations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->string('title')->nullable();
             $table->integer('question_count')->default(3);
             $table->integer('difficulty')->nullable();
             $table->string('speach_kit')->nullable();

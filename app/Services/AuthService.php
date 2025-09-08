@@ -90,15 +90,11 @@ class AuthService
     {
         $sessionToken = Session::get('token') ?? null;
 
-        if (is_null($sessionToken)) {
-            return $this->notice('401', 'Вы не авторизованы!');
-        }
-
-        $auth = Token::where('value', $sessionToken)->first();
-
         Session::forget('token');
         Session::forget('role');
         Session::forget('user_id');
+
+        $auth = Token::where('value', $sessionToken)->first();
 
         if (!is_null($auth)) {
             $auth->delete();

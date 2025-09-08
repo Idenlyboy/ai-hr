@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->foreignId('vacation_id')->constrained();
             $table->foreignId('resume_id')->constrained();
             $table->float('strength')->nullable();
-            $table->enum('hr_status', ['new', 'approved', 'rejected'])->default('new');
-            $table->enum('hunter_status', ['new', 'approved', 'rejected'])->default('new');
+            $table->string('hr_status')->default('new');
+            $table->string('hunter_status')->default('new');
             $table->string('status')->nullable();
             $table->timestamps();
         });

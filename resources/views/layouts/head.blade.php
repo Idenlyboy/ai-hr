@@ -14,8 +14,8 @@
 
 	<title>@yield('title')</title>
 
-	<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
-	<link rel="manifest" href="/images/favicon/site.webmanifest" />
+	<link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+	<link rel="manifest" href="/images/site.webmanifest" />
 
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 	@stack('styles')

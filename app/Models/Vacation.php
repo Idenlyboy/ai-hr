@@ -8,6 +8,7 @@ class Vacation extends Model
 {
     protected $fillable = [
         'user_id',
+        'title',
         'question_count',
         'difficulty',
         'description',

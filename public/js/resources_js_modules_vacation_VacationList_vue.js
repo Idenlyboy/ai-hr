@@ -46,6 +46,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 break;
               }
               __props.methods.applyForVacation(selectedResume.value.id);
+              selectedResume.value = null;
               __props.modal.show = false;
               return _context.a(2, true);
             case 1:
@@ -66,32 +67,46 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       return statusLabels[status] || status;
     };
     (0,vue__WEBPACK_IMPORTED_MODULE_4__.onMounted)(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var url, _error$response$data$, _error, response, _response$data$data, _error$response$data$2, _error$response, _t;
+      var auth, authData, url, _error$response$data$, _error, response, _response$data$data, _error$response$data$2, _error$response, _t;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
-            url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_0__.endpoints.resume.get;
-            _context2.p = 1;
-            _context2.n = 2;
-            return axios.post(url);
+            auth = localStorage.getItem('auth');
+            if (auth) {
+              _context2.n = 1;
+              break;
+            }
+            return _context2.a(2, false);
+          case 1:
+            authData = JSON.parse(auth);
+            if (!((authData === null || authData === void 0 ? void 0 : authData.role) !== 'hunter')) {
+              _context2.n = 2;
+              break;
+            }
+            return _context2.a(2, false);
           case 2:
+            url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_0__.endpoints.resume.get;
+            _context2.p = 3;
+            _context2.n = 4;
+            return axios.post(url);
+          case 4:
             response = _context2.v;
             if (!(response.status == 200)) {
-              _context2.n = 3;
+              _context2.n = 5;
               break;
             }
             resumes.value = (_response$data$data = response.data.data) !== null && _response$data$data !== void 0 ? _response$data$data : [];
             return _context2.a(2, true);
-          case 3:
+          case 5:
             _composables_notifyService__WEBPACK_IMPORTED_MODULE_2__["default"].error((_error$response$data$ = (_error = error) === null || _error === void 0 || (_error = _error.response) === null || _error === void 0 || (_error = _error.data) === null || _error === void 0 ? void 0 : _error.message) !== null && _error$response$data$ !== void 0 ? _error$response$data$ : 'Произошла ошибка при получении ваших резюме!');
             return _context2.a(2, false);
-          case 4:
-            _context2.p = 4;
+          case 6:
+            _context2.p = 6;
             _t = _context2.v;
             _composables_notifyService__WEBPACK_IMPORTED_MODULE_2__["default"].error((_error$response$data$2 = _t === null || _t === void 0 || (_error$response = _t.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.message) !== null && _error$response$data$2 !== void 0 ? _error$response$data$2 : 'Произошла ошибка при получении ваших резюме!');
             return _context2.a(2, false);
         }
-      }, _callee2, null, [[1, 4]]);
+      }, _callee2, null, [[3, 6]]);
     })));
     var __returned__ = {
       selectedResume: selectedResume,
@@ -163,13 +178,15 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         show: false
       }
     });
+    var auth = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
     var userRole = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('guest');
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
       var authData = localStorage.getItem('auth');
       if (authData) {
         try {
-          var auth = JSON.parse(authData);
-          userRole.value = auth.role || 'guest';
+          var _auth$value;
+          auth.value = JSON.parse(authData);
+          userRole.value = ((_auth$value = auth.value) === null || _auth$value === void 0 ? void 0 : _auth$value.role) || 'guest';
         } catch (e) {
           userRole.value = 'guest';
         }
@@ -242,6 +259,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       hunterApply: hunterApply,
       selectedVacation: selectedVacation,
       modals: modals,
+      auth: auth,
       userRole: userRole,
       applyForVacation: applyForVacation,
       methods: methods,
@@ -425,7 +443,7 @@ var _hoisted_3 = {
 };
 var _hoisted_4 = ["href"];
 var _hoisted_5 = {
-  "class": "vacations-grid"
+  "class": "vacations-rows"
 };
 var _hoisted_6 = {
   "class": "card-header"
@@ -483,7 +501,7 @@ var _hoisted_24 = {
   "class": "empty-state"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _$props$vacations, _$props$vacations2;
+  var _$props$vacations, _$props$vacations2, _$props$vacations3;
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
     "class": "text-2xl font-bold text-gray-900"
   }, "Вакансии", -1 /* CACHED */)), $setup.userRole === 'hr' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
@@ -493,7 +511,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: vacation.id,
       "class": "vacation-card"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(vacation.description), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [['hr', 'admin'].includes($setup.userRole) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(vacation.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [['hr', 'admin'].includes($setup.userRole) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
       key: 0,
       href: $setup.endpoints.vacation.edit + vacation.id,
       "class": "edit-btn",
@@ -531,7 +549,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $setup.toggleApplyModal(vacation);
       },
       "class": "apply-btn"
-    }, " 🎯 Откликнуться ", 8 /* PROPS */, _hoisted_20)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.userRole === 'hr' && vacation.user_id === _ctx.authData.user_id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    }, " 🎯 Откликнуться ", 8 /* PROPS */, _hoisted_20)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.userRole === 'hr' && vacation.user_id === $setup.auth.user_id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       onClick: function onClick($event) {
         return $setup.applyAiProcess(vacation.id);
       },
@@ -543,10 +561,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "empty-icon"
   }, "📋", -1 /* CACHED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "empty-text"
-  }, "Нет доступных вакансий", -1 /* CACHED */)])))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ApplyModal"], {
+  }, "Нет доступных вакансий", -1 /* CACHED */)])))) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), ((_$props$vacations3 = $props.vacations) === null || _$props$vacations3 === void 0 || (_$props$vacations3 = _$props$vacations3.data) === null || _$props$vacations3 === void 0 ? void 0 : _$props$vacations3.length) > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["ApplyModal"], {
+    key: 0,
     modal: $setup.modals.apply,
     methods: $setup.methods
-  }, null, 8 /* PROPS */, ["modal"])], 64 /* STABLE_FRAGMENT */);
+  }, null, 8 /* PROPS */, ["modal"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

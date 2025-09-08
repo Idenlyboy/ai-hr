@@ -46,6 +46,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 break;
               }
               __props.methods.applyForVacation(selectedResume.value.id);
+              selectedResume.value = null;
               __props.modal.show = false;
               return _context.a(2, true);
             case 1:
@@ -66,32 +67,46 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       return statusLabels[status] || status;
     };
     (0,vue__WEBPACK_IMPORTED_MODULE_4__.onMounted)(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var url, _error$response$data$, _error, response, _response$data$data, _error$response$data$2, _error$response, _t;
+      var auth, authData, url, _error$response$data$, _error, response, _response$data$data, _error$response$data$2, _error$response, _t;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
-            url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_0__.endpoints.resume.get;
-            _context2.p = 1;
-            _context2.n = 2;
-            return axios.post(url);
+            auth = localStorage.getItem('auth');
+            if (auth) {
+              _context2.n = 1;
+              break;
+            }
+            return _context2.a(2, false);
+          case 1:
+            authData = JSON.parse(auth);
+            if (!((authData === null || authData === void 0 ? void 0 : authData.role) !== 'hunter')) {
+              _context2.n = 2;
+              break;
+            }
+            return _context2.a(2, false);
           case 2:
+            url = _storage_endpoints__WEBPACK_IMPORTED_MODULE_0__.endpoints.resume.get;
+            _context2.p = 3;
+            _context2.n = 4;
+            return axios.post(url);
+          case 4:
             response = _context2.v;
             if (!(response.status == 200)) {
-              _context2.n = 3;
+              _context2.n = 5;
               break;
             }
             resumes.value = (_response$data$data = response.data.data) !== null && _response$data$data !== void 0 ? _response$data$data : [];
             return _context2.a(2, true);
-          case 3:
+          case 5:
             _composables_notifyService__WEBPACK_IMPORTED_MODULE_2__["default"].error((_error$response$data$ = (_error = error) === null || _error === void 0 || (_error = _error.response) === null || _error === void 0 || (_error = _error.data) === null || _error === void 0 ? void 0 : _error.message) !== null && _error$response$data$ !== void 0 ? _error$response$data$ : 'Произошла ошибка при получении ваших резюме!');
             return _context2.a(2, false);
-          case 4:
-            _context2.p = 4;
+          case 6:
+            _context2.p = 6;
             _t = _context2.v;
             _composables_notifyService__WEBPACK_IMPORTED_MODULE_2__["default"].error((_error$response$data$2 = _t === null || _t === void 0 || (_error$response = _t.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.message) !== null && _error$response$data$2 !== void 0 ? _error$response$data$2 : 'Произошла ошибка при получении ваших резюме!');
             return _context2.a(2, false);
         }
-      }, _callee2, null, [[1, 4]]);
+      }, _callee2, null, [[3, 6]]);
     })));
     var __returned__ = {
       selectedResume: selectedResume,

@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use App\Models\Hit;
-use App\Models\User;
 use App\NoticeTrait;
+use App\Models\Resume;
 use App\Models\Vacation;
 use Illuminate\Support\Facades\Session;
 
@@ -77,10 +77,13 @@ class VacationService
         $resumeID = $data['resume_id'];
         $userID = Session::get('user_id');
 
-        $hunter = User::where('id', $userID)
-            ->where('role', 'hunter')
-            ->where('status', 'active')
+        $resume = Resume::where('id', $resumeID)
+            ->where('status', 'published')
             ->first();
+
+        if (!$resume || ($resume->user_id !== $userID)) {
+            return $this->notice('404', 'Ваше резюме не найдено!');
+        }
 
         $vacation = Vacation::where('id', $vacationID)
             ->where('status', 'published')
@@ -90,14 +93,22 @@ class VacationService
             return $this->notice('404', 'Вакансия не найдена!');
         }
 
-        // need check if Hit exists
+        $hit = Hit::where('vacation_id', $vacationID)
+            ->where('resume_id', $resumeID)
+            ->where('status', '<>', 'draft')
+            ->first();
 
-        $hit = Hit::create([
-            'vacation_id' => $vacationID,
-            'resume_id' => $resumeID,
-            'hunter_status' => 'applied',
-            'status' => 'new',
-        ]);
+        if (!$hit) {
+            $hit = Hit::create([
+                'vacation_id' => $vacationID,
+                'resume_id' => $resumeID,
+                'status' => 'new',
+            ]);
+        }
+
+        $hit->update(['hunter_status' => 'approved']);
+
+        return $this->notice(200, 'Успешно!');
     }
 
     /**

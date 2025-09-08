@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(StartSession::class);
         $middleware->alias([
             'web.route.access' => \App\Http\Middleware\WebRouteAccessMiddleware::class,
+            'webhook.route.access' => \App\Http\Middleware\WebhookRouteAccessMiddleware::class,
             'api.route.access' => \App\Http\Middleware\ApiRouteAccessMiddleware::class,
         ]);
     })

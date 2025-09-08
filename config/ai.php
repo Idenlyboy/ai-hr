@@ -7,6 +7,7 @@ return [
     'endpoints' => [
         'rank_resumes' => '/api/v1/webhook/rank-resumes',
         'analyze-interview' => '/api/v1/webhook/analyze-interview',
+        'vacancy-text-generate-tags' => '/api/v1/webhook/generate-tags',
     ],
 ];
 

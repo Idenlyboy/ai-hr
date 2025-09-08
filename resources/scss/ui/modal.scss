@@ -133,6 +133,9 @@
 .empty-resumes {
     text-align: center;
     padding: 2rem;
+    gap: 5px;
+    display: flex;
+    flex-direction: column
 }
 
 .empty-text {

@@ -13,6 +13,7 @@ return [
     'hr' => [
         'entities' => [
             'user' => ['update', 'paginate'],
+            'ai' => ['vacationProcess'],
             'resume' => ['paginate', 'respond'],
             'vacation' => ['store', 'update', 'paginate', 'archive'],
             'file' => ['store', 'destroy'],

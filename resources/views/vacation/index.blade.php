@@ -3,6 +3,8 @@
 @section('title', 'Вакансии')
 
 @section('content')
-    <vacation-list :vacations='@json($vacations)'></vacation-list>
-    @include('layouts.paginator.full', ['items' => $vacations])
+    <div class="wrapper-paginate">
+        <vacation-list :vacations='@json($vacations)'></vacation-list>
+        @include('layouts.paginator.full', ['items' => $vacations])
+    </div>
 @endsection

@@ -120,11 +120,15 @@ class VacationService
     {
         $data = $request->validated();
 
+        $userID = Session::get('user_id');
         $userRole = Session::get('role');
 
         if ($userRole !== 'hr' && $userRole !== 'admin') {
             return $this->notice('403', 'Вы не можете создавать вакансию!');
         }
+
+        $data['user_id'] = $userID;
+        $data['status'] = 'published';
 
         $vacation = Vacation::create($data);
 

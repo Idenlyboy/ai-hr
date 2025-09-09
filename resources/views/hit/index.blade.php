@@ -4,6 +4,8 @@
 
 @section('content')
 
-    <hit-list :hits='@json($hits)'></hit-list>
-    @include('layouts.paginator.full', ['items' => $hits])
+    <div class="wrapper-paginate">
+        <hit-list :hits='@json($hits)'></hit-list>
+        @include('layouts.paginator.full', ['items' => $hits])
+    </div>
 @endsection

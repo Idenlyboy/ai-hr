@@ -46,7 +46,7 @@ class AiService
             'X-Webhook-Token' => env('WEBHOOK_SECRET_TOKEN'),
             'Content-Type' => 'application/json',
         ])->post($url, [
-                    "webhook_url" => route('webhook.vacation.set-tags'),
+                    "webhook_url" => route('webhook.vacation.set-tags', ['id' => $vacation->id]),
                     "vacancy_text" => $vacation->description,
                 ]);
 

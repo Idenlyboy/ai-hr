@@ -22,12 +22,13 @@ class VacationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'question_count',
-            'difficulty',
-            'description',
-            'speach_kit',
-            'file',
-            'status',
+            'title' => 'nullable|string',
+            'question_count' => 'nullable|integer',
+            'difficulty' => 'nullable|integer',
+            'description' => 'nullable|string',
+            'speach_kit' => 'nullable|string',
+            'file' => 'nullable',
+            'status' => 'nullable|string',
         ];
     }
 }

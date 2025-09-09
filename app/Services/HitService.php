@@ -85,9 +85,7 @@ class HitService
         $userID = Session::get('user_id');
         $data = [];
 
-        $hit = Hit::with(['vacation', 'resume'])
-            ->where('id', $id)
-            ->where('status', '<>', 'draft')
+        $hit = Hit::where('id', $id)
             ->first();
 
         if (!$hit) {

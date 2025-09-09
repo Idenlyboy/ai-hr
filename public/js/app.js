@@ -29219,7 +29219,8 @@ var endpoints = {
   vacation: {
     edit: '/vacation/edit/',
     aiProcess: '/api/ai-process/vacation/',
-    hunterApply: '/api/hunter-apply/'
+    hunterApply: '/api/hunter-apply/',
+    crud: '/api/vacation/'
   },
   resume: {
     edit: '/resume/edit',

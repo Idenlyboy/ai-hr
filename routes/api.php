@@ -19,6 +19,8 @@ Route::middleware('api.route.access')->group(function () {
 
     Route::post('/hunter-apply/', [VacationController::class, 'hunterApply']);
 
+    Route::resource('/vacation', VacationController::class)->except(['create', 'edit', 'show']);
+
     Route::resource('/hit', HitController::class)->except(['store', 'create', 'edit', 'show']);
     Route::post('/hit-set-status/{id}/', [HitController::class, 'updateStatus']);
 });

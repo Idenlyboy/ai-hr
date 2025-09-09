@@ -51,32 +51,26 @@
             <small v-if="form.file">Выбрано: {{ form.file.name }}</small>
         </div>
 
-        <!-- Status (read-only) -->
-        <div v-if="isEditMode" class="form-group">
+        <div v-if="vacation" class="form-group">
             <label>Статус</label>
             <div class="form-value">{{ form.status }}</div>
         </div>
 
         <!-- Submit -->
         <button type="submit" :disabled="processing">
-            {{ isEditMode ? 'Обновить' : 'Создать' }}
+            {{ vacation ? 'Обновить' : 'Создать' }}
         </button>
-
-        <!-- Success Message -->
-        <div v-if="success" class="success-message">
-            {{ isEditMode ? 'Обновлено!' : 'Создано!' }}
-        </div>
     </form>
 </template>
 <script setup>
+import notify from '@composables/notifyService';
 import { ref, onMounted } from 'vue';
 import actionService from './services/actionService';
 
-// Предположим, что actionService возвращает { sendForm, notify, endpoints }
-const { sendForm, notify, endpoints } = actionService();
+const { sendForm } = actionService();
 
 const { vacation } = defineProps(['vacation']);
-const isEditMode = !!vacation;
+const processing = ref(false);
 
 const form = ref({
     title: '',
@@ -85,7 +79,7 @@ const form = ref({
     description: '',
     speach_kit: '',
     file: null,
-    status: 'draft',
+    status: '',
 });
 
 const handleFileUpload = (e) => {
@@ -94,37 +88,21 @@ const handleFileUpload = (e) => {
     if (file && allowedTypes.includes(file.type)) {
         form.value.file = file;
     } else if (file) {
-        notify?.error('Разрешены только PDF, DOC, DOCX, TXT');
+        notify.error('Разрешены только PDF, DOC, DOCX, TXT');
         e.target.value = '';
     }
 };
 
-const processing = ref(false);
-const success = ref(false);
-
 const submit = async () => {
     processing.value = true;
-    success.value = false;
 
     // Создаём объект данных
     const data = { ...form.value };
 
-    const success = await sendForm(vacation?.id, data);
+    const status = await sendForm(vacation?.id, data);
 
-    if (success) {
-        success.value = true;
-        if (!isEditMode) {
-            // Сброс формы
-            form.value = {
-                title: '',
-                question_count: 3,
-                difficulty: 1,
-                description: '',
-                speach_kit: '',
-                file: null,
-                status: 'draft',
-            };
-        }
+    if (status) {
+        window.location.href = '/vacations';
     }
 
     processing.value = false;

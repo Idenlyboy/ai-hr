@@ -30,11 +30,11 @@ class HitController extends Controller
     /**
      * Update Hit by ID
      * @param mixed $id
-     * @param \App\Http\Requests\HitRequest $request
+     * @param \Illuminate\Http\Request $request
      * @param \App\Services\HitService $hitService
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update($id, HitRequest $request, HitService $hitService)
+    public function update($id, Request $request, HitService $hitService)
     {
         $result = $hitService->update($id, $request);
 

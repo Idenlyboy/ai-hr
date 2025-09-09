@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\VacationController;
+use App\Http\Controllers\HitController;
+use Illuminate\Support\Facades\Route;
 
 Route::post('/login/', [AuthController::class, 'auth']);
 Route::post('/logout/', [AuthController::class, 'logout']);
@@ -17,6 +18,9 @@ Route::middleware('api.route.access')->group(function () {
     Route::post('/resume/get/', [ResumeController::class, 'get']);
 
     Route::post('/hunter-apply/', [VacationController::class, 'hunterApply']);
+
+    Route::resource('/hit', HitController::class)->except(['store', 'create', 'edit', 'show']);
+    Route::post('/hit-set-status/{id}/', [HitController::class, 'updateStatus']);
 });
 
 // Webhook routes

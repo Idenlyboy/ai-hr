@@ -7,9 +7,17 @@
     background: var(--tg-theme-bg-color, #f8fafc);
     min-height: 100vh;
 
+    .add-button {
+        a {
+            color: white;
+        }
+    }
+
     .list-header {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
         align-items: center;
         width: 100%;
         max-width: 1200px;
@@ -98,7 +106,6 @@
         padding: 0.5rem;
         border-radius: 0.75rem;
         transition: all 0.3s ease;
-        background: var(--tg-theme-secondary-bg-color, #f8fafc);
 
         &:hover {
             color: var(--tg-theme-button-color, #4f46e5);

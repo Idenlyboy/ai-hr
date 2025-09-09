@@ -18,6 +18,11 @@ export const endpoints = {
         edit: '/resume/edit',
         get: '/api/resume/get',
     },
+    hit: {
+        interviewPage: '/interview/hit/',
+        crud: '/api/hit/',
+        updateStatus: '/api/hit-set-status/',
+    },
     files: {
         store: '/api/files/',
         delete: '/api/files/destroy/',

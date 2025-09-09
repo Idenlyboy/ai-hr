@@ -34,6 +34,6 @@ class Vacation extends Model
 
     public function skills()
     {
-        return $this->belongsToMany(Skill::class, 'vacation_skills');
+        return $this->belongsToMany(Skill::class, 'vacation_skills', 'vacation_id', 'skill_id');
     }
 }

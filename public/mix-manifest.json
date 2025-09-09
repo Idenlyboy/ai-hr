@@ -1,8 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
     "/images/favicon-96x96.png": "/images/favicon-96x96.png",
     "/images/icons.svg": "/images/icons.svg",
     "/images/site.webmanifest": "/images/site.webmanifest",
-    "/css/app.min.css": "/css/app.min.css"
+    "/css/app.min.css": "/css/app.min.css",
+    "/css/app.css": "/css/app.css"
 }

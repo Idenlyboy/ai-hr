@@ -58,7 +58,7 @@ class VacationController extends Controller
      * @param \App\Services\VacationService $vacationService
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit($id = null, VacationService $vacationService)
+    public function edit(VacationService $vacationService, $id = null)
     {
         $data = [
             'vacation' => [],
@@ -68,7 +68,7 @@ class VacationController extends Controller
             $data['vacation'] = $vacationService->getByID($id);
         }
 
-        return view('', $data);
+        return view('vacation.edit', $data);
     }
 
     public function hunterApply(Request $request, VacationService $vacationService)

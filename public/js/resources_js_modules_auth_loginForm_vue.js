@@ -630,7 +630,7 @@ var loginService = function loginService() {
           case 2:
             response = _context.v;
             localStorage.setItem('auth', JSON.stringify(response.data.data));
-            window.location.href = '/';
+            window.location.href = '/vacations';
             return _context.a(2, true);
           case 3:
             _context.p = 3;

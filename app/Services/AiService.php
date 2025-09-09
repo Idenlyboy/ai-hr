@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\Hit;
+use App\Models\User;
 use App\NoticeTrait;
 use App\Models\Vacation;
 use Illuminate\Support\Facades\Http;
@@ -15,6 +17,17 @@ class AiService
     public function __construct()
     {
         $this->aiConfig = config('ai');
+    }
+
+    public function getInterviewPage($id)
+    {
+        $hit = Hit::where('id', $id)
+            ->first();
+
+        $url = $this->getEndpointUrl('interview-page');
+        $user = User::where('id', $hit->resume->user_id ?? 1)->first();
+
+        return $url . '?uuid=' . $user->id;
     }
 
     public function vacationProcess($id)

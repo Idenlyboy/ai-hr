@@ -16,7 +16,7 @@ const loginService = () => {
 
             localStorage.setItem('auth', JSON.stringify(response.data.data));
 
-            window.location.href = '/';
+            window.location.href = '/vacations';
 
             return true;
         } catch (error) {

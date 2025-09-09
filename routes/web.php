@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HitController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VacationController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,4 +21,13 @@ Route::get('/vacations/', [VacationController::class, 'index'])->name('vacation.
 // Auth routes
 Route::middleware('web.route.access')->group(function () {
     Route::get('/vacation/edit/{id?}', [VacationController::class, 'edit'])->name('vacation.edit');
+
+    Route::get('/hits/', [HitController::class, 'index'])->name('hit.page');
+
+    Route::get('/profile', function () {
+        $role = Session::get('role');
+        return view('profile.' . $role);
+    })->name('user.profile');
+
+    Route::get('/interview/hit/{id}/', [HitController::class, 'interviewPage'])->name('interview.page');
 });

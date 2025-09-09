@@ -1,13 +1,12 @@
 <template>
     <div class="vacation-list">
         <div class="list-header">
-            <h2 class="text-2xl font-bold text-gray-900">Вакансии</h2>
-            <div v-if="userRole === 'hr'" class="add-button">
-                <a :href="endpoints.vacation.edit"
-                    class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+            <h2 class="list-title">Вакансии</h2>
+            <button v-if="userRole === 'hr'" class="add-button">
+                <a :href="endpoints.vacation.edit">
                     Создать вакансию
                 </a>
-            </div>
+            </button>
         </div>
 
         <div class="vacations-rows">
@@ -80,7 +79,7 @@
 
         <div v-if="vacations?.data?.length === 0" class="empty-state">
             <div class="empty-icon">📋</div>
-            <p class="empty-text">Нет доступных вакансий</p>
+            <p class="empty-text">Доступных вакансий пока нет!</p>
         </div>
     </div>
     <ApplyModal v-if="vacations?.data?.length > 0" :modal="modals.apply" :methods="methods"></ApplyModal>

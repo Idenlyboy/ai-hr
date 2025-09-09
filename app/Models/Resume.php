@@ -23,11 +23,6 @@ class Resume extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function vacation()
-    {
-        return $this->belongsTo(Vacation::class);
-    }
-
     public function hits()
     {
         return $this->hasMany(Hit::class);

@@ -50,7 +50,37 @@ const actionService = () => {
         }
     }
 
-    return { aiProcess, hunterApply };
+    const sendForm = async (id, data) => {
+        const url = id
+            ? `${endpoints.vacation.crud}${id}/`
+            : endpoints.vacation.crud;
+
+        const formData = new FormData();
+        Object.entries(data).forEach(([key, value]) => {
+            if (value !== null && value !== undefined) {
+                formData.append(key, value);
+            }
+        });
+
+        if (id) {
+            formData.append('_method', 'PUT');
+        }
+
+        try {
+            const response = await axios.post(url, formData);
+            if (response.status === 200 || response.status === 201) {
+                notify.success('Успешно!');
+                return true;
+            }
+            notify.error('Ошибка сервера');
+            return false;
+        } catch (error) {
+            notify.error(error?.response?.data?.message ?? 'Ошибка отправки');
+            return false;
+        }
+    };
+
+    return { aiProcess, hunterApply, sendForm };
 };
 
 export default actionService;

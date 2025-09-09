@@ -28895,6 +28895,22 @@ var map = {
 		"./resources/js/modules/auth/services/regService.js",
 		"resources_js_modules_auth_services_regService_js"
 	],
+	"./modules/hit/HitList": [
+		"./resources/js/modules/hit/HitList.vue",
+		"resources_js_modules_hit_HitList_vue"
+	],
+	"./modules/hit/HitList.vue": [
+		"./resources/js/modules/hit/HitList.vue",
+		"resources_js_modules_hit_HitList_vue"
+	],
+	"./modules/hit/services/hitService": [
+		"./resources/js/modules/hit/services/hitService.js",
+		"resources_js_modules_hit_services_hitService_js"
+	],
+	"./modules/hit/services/hitService.js": [
+		"./resources/js/modules/hit/services/hitService.js",
+		"resources_js_modules_hit_services_hitService_js"
+	],
 	"./modules/index": [
 		"./resources/js/modules/index.js"
 	],
@@ -28908,6 +28924,14 @@ var map = {
 	"./modules/vacation/ApplyModal.vue": [
 		"./resources/js/modules/vacation/ApplyModal.vue",
 		"resources_js_modules_vacation_ApplyModal_vue"
+	],
+	"./modules/vacation/EditForm": [
+		"./resources/js/modules/vacation/EditForm.vue",
+		"resources_js_modules_vacation_EditForm_vue"
+	],
+	"./modules/vacation/EditForm.vue": [
+		"./resources/js/modules/vacation/EditForm.vue",
+		"resources_js_modules_vacation_EditForm_vue"
 	],
 	"./modules/vacation/VacationList": [
 		"./resources/js/modules/vacation/VacationList.vue",
@@ -29160,6 +29184,12 @@ var modules = [{
 }, {
   name: 'vacation-list',
   path: './modules/vacation/VacationList.vue'
+}, {
+  name: 'hit-list',
+  path: './modules/hit/HitList.vue'
+}, {
+  name: 'vacation-edit',
+  path: './modules/vacation/EditForm.vue'
 }];
 
 /***/ }),
@@ -29194,6 +29224,11 @@ var endpoints = {
   resume: {
     edit: '/resume/edit',
     get: '/api/resume/get'
+  },
+  hit: {
+    interviewPage: '/interview/hit/',
+    crud: '/api/hit/',
+    updateStatus: '/api/hit-set-status/'
   },
   files: {
     store: '/api/files/',
@@ -29320,7 +29355,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_ModalWrap_vue":1,"resources_js_components_ui_InputEmail_vue":1,"resources_js_components_ui_InputPass_vue":1,"resources_js_components_ui_InputText_vue":1,"resources_js_modules_auth_RegForm_vue":1,"resources_js_modules_auth_loginForm_vue":1,"resources_js_modules_auth_services_loginService_js":1,"resources_js_modules_auth_services_regService_js":1,"resources_js_modules_vacation_ApplyModal_vue":1,"resources_js_modules_vacation_VacationList_vue":1,"resources_js_modules_vacation_services_actionService_js":1,"resources_js_storage_constants_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_ModalWrap_vue":1,"resources_js_components_ui_InputEmail_vue":1,"resources_js_components_ui_InputPass_vue":1,"resources_js_components_ui_InputText_vue":1,"resources_js_modules_auth_RegForm_vue":1,"resources_js_modules_auth_loginForm_vue":1,"resources_js_modules_auth_services_loginService_js":1,"resources_js_modules_auth_services_regService_js":1,"resources_js_modules_hit_HitList_vue":1,"resources_js_modules_hit_services_hitService_js":1,"resources_js_modules_vacation_ApplyModal_vue":1,"resources_js_modules_vacation_EditForm_vue":1,"resources_js_modules_vacation_VacationList_vue":1,"resources_js_modules_vacation_services_actionService_js":1,"resources_js_storage_constants_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -29331,7 +29366,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".css";
+/******/ 			return undefined;
 /******/ 		};
 /******/ 	})();
 /******/ 	

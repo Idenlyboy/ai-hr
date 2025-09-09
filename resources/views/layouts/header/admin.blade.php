@@ -1,13 +1,13 @@
 <header class="header">
     <div class="header__content">
         <a href="/" class="header__logo">
-            <div class="header__logo-icon">LC</div>
-            Личный кабинет
+            <div class="header__logo-icon">AI</div>
+            ВТБ AI
         </a>
 
         <div class="header__actions">
             <div class="header__user">
-                <div class="header__avatar">ИИ</div>
+                <div class="header__avatar">М.К.</div>
             </div>
         </div>
     </div>

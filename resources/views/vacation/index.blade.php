@@ -1,6 +1,6 @@
 @extends('layouts.app.user')
 
-@section('title', 'Главная')
+@section('title', 'Вакансии')
 
 @section('content')
     <vacation-list :vacations='@json($vacations)'></vacation-list>
